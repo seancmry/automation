@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collected Projects Demo</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --muted: #9fb0cc;
+      --text: #eef3fb;
+      --accent: #35c2b5;
+      --accent-2: #4f8cff;
+      --ok: #2fbf71;
+      --warn: #f5b74a;
+      --bad: #ef5d63;
+      --border: #24324d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #0b1220 0%, #111b31 100%);
+      color: var(--text);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .hero { margin-bottom: 20px; }
+    .hero h1 { margin: 0 0 6px; font-size: 28px; }
+    .hero p { margin: 0; color: var(--muted); }
+    .tabs { display: flex; gap: 8px; margin: 18px 0; flex-wrap: wrap; }
+    .tab-btn {
+      border: 1px solid var(--border);
+      background: #121b2f;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tab-btn.active { border-color: var(--accent); background: #17314a; }
+    .panel {
+      display: none;
+      background: rgba(18, 26, 43, 0.95);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .panel.active { display: block; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #111a2a;
+    }
+    label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    input, select, textarea {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #30415f;
+      background: #0f1728;
+      color: var(--text);
+      padding: 8px 10px;
+      margin-bottom: 10px;
+    }
+    .row { display: flex; gap: 8px; }
+    .btn {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #17263e;
+      color: var(--text);
+    }
+    .btn.primary { background: #1d3e63; border-color: #2f5f97; }
+    .btn.ok { background: #1f5338; border-color: #2a7c52; }
+    .btn.warn { background: #5a461f; border-color: #8d6f33; }
+    .btn.bad { background: #5e2228; border-color: #9d333b; }
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #0f1728;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      min-height: 78px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    .pill.ok { background: rgba(47,191,113,.2); color: #8de6b6; }
+    .pill.warn { background: rgba(245,183,74,.2); color: #f7cd81; }
+    .pill.bad { background: rgba(239,93,99,.2); color: #ffb3b6; }
+    .small { color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Collected Projects - Interactive Demo</h1>
+      <p>Portfolio-safe demonstration pages for operational workflows and collected project concepts.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn" data-tab="map">Project Map</button>
+      <button class="tab-btn active" data-tab="photo">Photo Log Demo Wizard</button>
+      <button class="tab-btn" data-tab="qi">Intelligent QI Demo Check</button>
+    </div>
+
+    <section id="map" class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Supplier Risk Radar</h3>
+          <p class="small">
+            Supplier scoring concept based on delays, quality outcomes, complaints, and signal confidence.
+          </p>
+          <div class="status">Goal: rank suppliers by operational risk and show top risk drivers for proactive follow-up.</div>
+          <a class="btn primary" href="../supplier_risk_radar/README.md">Open README</a>
+          <a class="btn" href="../supplier_risk_radar/demo_page.md">Open Demo Page</a>
+        </div>
+        <div class="card">
+          <h3>OTIF Root Cause Lab</h3>
+          <p class="small">
+            OTIF miss attribution model with clear root-cause buckets and trend visibility.
+          </p>
+          <div class="status">Goal: classify late outcomes into actionable causes instead of generic "late" labels.</div>
+          <a class="btn primary" href="../otif_root_cause_lab/README.md">Open README</a>
+          <a class="btn" href="../otif_root_cause_lab/demo_page.md">Open Demo Page</a>
+        </div>
+        <div class="card">
+          <h3>MTO Traceability Map</h3>
+          <p class="small">
+            End-to-end trace from Sales Order through PO chain, pickings, and quality outcomes.
+          </p>
+          <div class="status">Goal: reduce triage time by showing one order timeline with bottleneck and next action.</div>
+          <a class="btn primary" href="../mto_traceability_map/README.md">Open README</a>
+          <a class="btn" href="../mto_traceability_map/demo_page.md">Open Demo Page</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="photo" class="panel active">
+      <div class="grid">
+        <div class="card">
+          <h3>Step 1: Upload Context</h3>
+          <label>Target Type</label>
+          <select id="targetType">
+            <option value="picking">Stock Picking</option>
+            <option value="quality_check">Quality Check</option>
+          </select>
+
+          <label>Target ID</label>
+          <input id="targetId" value="10428" />
+
+          <label>Stage Label</label>
+          <select id="photoStage">
+            <option>Pre-Inbound</option>
+            <option>Inbound</option>
+            <option>Quality Inspection</option>
+            <option>Outbound</option>
+          </select>
+
+          <label>Attachment File Name</label>
+          <input id="filename" value="evidence.jpg" />
+
+          <div class="row">
+            <button class="btn primary" id="buildPayloadBtn">Build Payload</button>
+            <button class="btn ok" id="demoUploadBtn">Run upload demo</button>
+          </div>
+          <div class="small">Demonstration only: no real server call is made.</div>
+        </div>
+
+        <div class="card">
+          <h3>Output</h3>
+          <div><span class="pill ok">Validation</span><span id="photoValidation">Pending</span></div>
+          <div class="status" id="photoStatus"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="qi" class="panel">
+      <div class="grid">
+        <div class="card">
+          <h3>Checklist Controls</h3>
+          <label>CH Status</label>
+          <select id="ch"><option>pending</option><option>pass</option><option>fail</option><option>na</option></select>
+          <label>CM Status</label>
+          <select id="cm"><option>pending</option><option>pass</option><option>fail</option><option>na</option></select>
+          <label>CP Status</label>
+          <select id="cp"><option>pending</option><option>pass</option><option>fail</option><option>na</option></select>
+          <label>CC Status</label>
+          <select id="cc"><option>pending</option><option>pass</option><option>fail</option><option>na</option></select>
+          <label>CR Status (report docs)</label>
+          <select id="cr"><option>pending</option><option>pass</option><option>fail</option><option>na</option></select>
+
+          <label>NC Severity</label>
+          <select id="ncType">
+            <option value="">none</option>
+            <option value="major">major</option>
+            <option value="minor">minor</option>
+          </select>
+          <div class="row">
+            <button class="btn warn" id="evalQiBtn">Assess Check</button>
+            <button class="btn bad" id="scarBtn">Can Export SCAR?</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Result</h3>
+          <div>
+            <span class="pill warn">Checklist</span><span id="qiChecklist">Pending</span>
+          </div>
+          <div>
+            <span class="pill bad">NC</span><span id="qiNc">Not flagged</span>
+          </div>
+          <div class="status" id="qiStatus"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = document.querySelectorAll(".panel");
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach(b => b.classList.remove("active"));
+        panels.forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+
+    function buildPhotoPayload() {
+      const targetType = document.getElementById("targetType").value;
+      const targetId = parseInt(document.getElementById("targetId").value || "0", 10);
+      const stage = document.getElementById("photoStage").value;
+      const filename = document.getElementById("filename").value || "evidence.jpg";
+      if (!targetId) return { error: "Target ID must be a positive integer." };
+      const payload = {
+        image_data: "<base64-image>",
+        stage,
+        filename,
+        mimetype: "image/jpeg",
+      };
+      if (targetType === "picking") payload.picking_id = targetId;
+      if (targetType === "quality_check") payload.quality_check_id = targetId;
+      return { payload };
+    }
+
+    document.getElementById("buildPayloadBtn").addEventListener("click", () => {
+      const result = buildPhotoPayload();
+      const status = document.getElementById("photoStatus");
+      if (result.error) {
+        document.getElementById("photoValidation").textContent = "Invalid";
+        status.textContent = result.error;
+        return;
+      }
+      document.getElementById("photoValidation").textContent = "Valid";
+      status.textContent = JSON.stringify(result.payload, null, 2);
+    });
+
+    document.getElementById("demoUploadBtn").addEventListener("click", () => {
+      const result = buildPhotoPayload();
+      const status = document.getElementById("photoStatus");
+      if (result.error) {
+        document.getElementById("photoValidation").textContent = "Invalid";
+        status.textContent = result.error;
+        return;
+      }
+      document.getElementById("photoValidation").textContent = "Accepted";
+      status.textContent =
+        "Demonstration server response:\n" +
+        JSON.stringify(
+          {
+            success: true,
+            attachment_id: 9981,
+            record_name: result.payload.picking_id ? "WH/IN/00042" : "QC/00042",
+            note: "Photo uploaded and chatter note posted.",
+          },
+          null,
+          2
+        );
+    });
+
+    function checklistComplete(values) {
+      const required = ["ch", "cm", "cp", "cc", "cr"];
+      return required.every(k => values[k] !== "pending");
+    }
+
+    function getQiValues() {
+      return {
+        ch: document.getElementById("ch").value,
+        cm: document.getElementById("cm").value,
+        cp: document.getElementById("cp").value,
+        cc: document.getElementById("cc").value,
+        cr: document.getElementById("cr").value,
+        nc_type: document.getElementById("ncType").value,
+      };
+    }
+
+    document.getElementById("evalQiBtn").addEventListener("click", () => {
+      const values = getQiValues();
+      const done = checklistComplete(values);
+      document.getElementById("qiChecklist").textContent = done ? "Complete" : "Incomplete";
+      document.getElementById("qiNc").textContent = values.nc_type ? `Flagged (${values.nc_type})` : "Not flagged";
+      document.getElementById("qiStatus").textContent = JSON.stringify({
+        mandatory_steps_complete: done,
+        can_pass_gate: done,
+        nc_flagged: Boolean(values.nc_type),
+        nc_type: values.nc_type || null
+      }, null, 2);
+    });
+
+    document.getElementById("scarBtn").addEventListener("click", () => {
+      const values = getQiValues();
+      const canExport = Boolean(values.nc_type);
+      document.getElementById("qiStatus").textContent =
+        "SCAR export check:\n" +
+        JSON.stringify({ can_export_scar: canExport, reason: canExport ? "NC flagged" : "NC not flagged" }, null, 2);
+    });
+  </script>
+</body>
+</html>

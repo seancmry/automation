@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_partner_form_hr_demo_case" model="ir.ui.view">
+    <field name="name">res.partner.form.hr.demo.case</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="before">
+        <div class="alert alert-info mb-0" role="alert"
+             invisible="not x_hr_case_ref">
+          <strong>HR case ticket</strong>
+          <span class="ms-2 badge text-bg-primary" invisible="not x_hr_case_status">
+            <field name="x_hr_case_status" readonly="1"/>
+          </span>
+          <span class="ms-1 badge text-bg-warning" invisible="x_hr_case_priority != 'high'">
+            High priority
+          </span>
+          <span class="ms-1 badge text-bg-danger" invisible="x_hr_case_priority != 'urgent'">
+            Urgent
+          </span>
+        </div>
+      </xpath>
+      <xpath expr="//notebook" position="before">
+        <group string="HR case" invisible="not x_hr_case_ref">
+          <group>
+            <field name="x_hr_case_ref" readonly="1"/>
+            <field name="x_hr_case_title"/>
+            <field name="x_hr_case_status"/>
+            <field name="x_hr_case_priority"/>
+            <field name="x_hr_case_opened"/>
+          </group>
+          <group>
+            <field name="x_hr_department"/>
+            <field name="x_hr_manager"/>
+            <field name="x_hr_site"/>
+          </group>
+        </group>
+        <group string="Case details" invisible="not x_hr_case_ref">
+          <field name="x_hr_case_context" nolabel="1" colspan="2"
+                 placeholder="Facts, policy tension, open questions…"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_partner_tree_hr_demo_case" model="ir.ui.view">
+    <field name="name">res.partner.tree.hr.demo.case</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='email']" position="after">
+        <field name="x_hr_case_ref" optional="hide"/>
+        <field name="x_hr_case_status" optional="hide"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

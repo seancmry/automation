@@ -1,0 +1,42 @@
+{
+  "name": "hr-ai-hitl",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HITL HR AI demo: Vercel AI SDK + optional Odoo write-back",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "eval:check": "tsx scripts/eval-check.ts",
+    "setup:keys": "bash scripts/setup-keys.sh",
+    "keys:slots": "bash scripts/key-slots.sh",
+    "keys:check": "bash scripts/check-keys.sh",
+    "odoo:up": "docker compose up -d",
+    "odoo:install-module": "bash scripts/install-odoo-module.sh",
+    "odoo:seed": "tsx scripts/seed-odoo-cases.ts",
+    "odoo:bootstrap": "bash scripts/odoo-bootstrap.sh",
+    "capture:portfolio": "node scripts/capture-portfolio.js"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.2.18",
+    "@ai-sdk/groq": "^1.2.9",
+    "@ai-sdk/openai": "^1.3.22",
+    "@ai-sdk/react": "^1.2.12",
+    "ai": "^4.3.16",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "dotenv": "^16.5.0",
+    "playwright": "^1.49.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

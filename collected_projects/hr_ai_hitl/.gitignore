@@ -1,0 +1,11 @@
+node_modules
+.next
+.env
+.env.local
+.env*.local
+data/mock-writes.json
+data/odoo-case-map.json
+.DS_Store
+*.log
+.vercel
+.env.local.bak

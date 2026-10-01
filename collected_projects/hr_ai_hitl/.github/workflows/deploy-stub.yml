@@ -1,0 +1,32 @@
+# Interview / portfolio stub — shows deploy path without pushing to a real cluster.
+# Trigger manually from GitHub Actions tab if you want to demo the pipeline shape.
+name: Deploy (stub)
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        required: true
+        default: staging
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t hr-hitl-workbench:${{ github.sha }} .
+
+      - name: Apply Kubernetes manifests (stub)
+        run: |
+          echo "Would: kubectl set image deployment/hr-hitl-workbench app=hr-hitl-workbench:${{ github.sha }}"
+          echo "Would: kubectl rollout status deployment/hr-hitl-workbench"
+          test -f k8s/deployment.yaml
+          test -f k8s/service.yaml

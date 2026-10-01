@@ -1,0 +1,33 @@
+# Optional local Odoo for live write-back demos.
+# Usage:
+#   docker compose up -d
+#   open http://localhost:8069  → create DB "hr_hitl_demo", install Discuss (mail)
+#   set ODOO_MODE=live in .env.local
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - odoo-db:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo:17.0
+    depends_on: [db]
+    ports:
+      - "8069:8069"
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+    volumes:
+      - odoo-web:/var/lib/odoo
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - ./odoo-addons:/mnt/extra-addons:ro
+
+volumes:
+  odoo-db:
+  odoo-web:

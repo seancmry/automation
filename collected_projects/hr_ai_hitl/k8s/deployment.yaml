@@ -1,0 +1,53 @@
+# Stub manifests for production discussion — adjust image/registry for your cluster.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hr-hitl-workbench
+  labels:
+    app: hr-hitl-workbench
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hr-hitl-workbench
+  template:
+    metadata:
+      labels:
+        app: hr-hitl-workbench
+    spec:
+      containers:
+        - name: app
+          image: hr-hitl-workbench:latest # replace with your registry image
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: hr-hitl-secrets
+          env:
+            - name: ODOO_MODE
+              value: live
+            - name: ODOO_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: hr-hitl-config
+                  key: odoo_url
+          readinessProbe:
+            httpGet:
+              path: /api/odoo/health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/odoo/health
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

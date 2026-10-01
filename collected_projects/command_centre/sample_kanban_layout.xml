@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Sanitised command-centre-style kanban card excerpt.
+Shows compact data hierarchy and priority-based class binding.
+-->
+<kanban default_group_by="stage" class="portfolio_command_centre_kanban" create="false">
+    <field name="name"/>
+    <field name="sales_id"/>
+    <field name="customer_name"/>
+    <field name="priority_tier"/>
+    <templates>
+        <t t-name="card">
+            <div t-attf-class="portfolio_card priority_#{record.priority_tier.raw_value or 'low'}">
+                <div class="card_head">
+                    <strong><field name="name"/></strong>
+                    <span><field name="sales_id"/></span>
+                </div>
+                <div class="card_customer"><field name="customer_name"/></div>
+            </div>
+        </t>
+    </templates>
+</kanban>
