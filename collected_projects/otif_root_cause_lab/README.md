@@ -1,23 +1,22 @@
-# OTIF Root Cause Lab Showcase
+# OTIF Root Cause Lab
 
-## What This Demonstrates
+## The problem
 
-A structured attribution layer that explains OTIF misses by root cause category, enabling targeted process improvements.
+“We missed OTIF” is not an action. Without a shared way to attribute *why*, teams fix the wrong thing or fix nothing.
 
-## Included Files
+**What this showcase shows:** a structured attribution layer that explains OTIF misses by root-cause category so process work can target the real drivers.
 
-- [`demo_page.md`](./demo_page.md) - GitHub-friendly walkthrough.
+## Who it helps
 
-## Source Mapping
+- Ops / CS / supply-chain people reviewing delivery performance  
+- Analysts who need categories, not only a red/green OTIF %  
+- Portfolio readers studying the attribution pattern  
 
-Primary source modules:
-- `odoo_dev/mv_command_centre/models/command_centre_entry.py`
-- `odoo_dev/mv_sale_fields/models/sale_order.py`
-- `odoo_dev/mv_purchase_fields/models/purchase_order.py`
+## How to run
 
-## Portfolio Safety
+This folder is a **read-and-learn showcase** (not a full app install).
 
-Samples are adapted to avoid exposing:
-- business-specific customer/order data,
-- private infrastructure references,
-- environment-specific internals.
+1. Read [`demo_page.md`](./demo_page.md).  
+2. Use it as the narrative; samples elsewhere in this repo show related ops patterns.
+
+Primary source modules (private tree): command centre + sale / purchase field models under `odoo_dev/`.

@@ -1,23 +1,22 @@
-# MTO Traceability Map Showcase
+# MTO Traceability Map
 
-## What This Demonstrates
+## The problem
 
-An end-to-end trace from Sales Order through linked Purchase Orders, pickings, and quality outcomes for make-to-order operations.
+Make-to-order work crosses sales, purchasing, picking, and quality. When something breaks, people ask “where did this order go?” and get five partial answers.
 
-## Included Files
+**What this showcase shows:** an end-to-end trace from sales order through linked purchase orders, pickings, and quality outcomes.
 
-- [`demo_page.md`](./demo_page.md) - GitHub-friendly walkthrough.
+## Who it helps
 
-## Source Mapping
+- Ops people debugging a single MTO order across systems  
+- Engineers designing traceability views on an ERP  
+- Portfolio readers who want the map without real order data  
 
-Primary source modules:
-- `odoo_dev/mv_sale_fields/models/sale_order.py`
-- `odoo_dev/mv_purchase_fields/models/purchase_order.py`
-- `odoo_dev/mv_command_centre/models/command_centre_entry.py`
+## How to run
 
-## Portfolio Safety
+This folder is a **read-and-learn showcase** (not a full app install).
 
-Samples are adapted to avoid exposing:
-- business-specific customer/order data,
-- private infrastructure references,
-- environment-specific internals.
+1. Read [`demo_page.md`](./demo_page.md).  
+2. Follow the story of one order path; samples stay sanitised.
+
+Primary source modules (private tree): sale / purchase fields + command centre under `odoo_dev/`.

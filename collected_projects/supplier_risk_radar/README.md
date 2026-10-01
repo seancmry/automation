@@ -1,23 +1,22 @@
-# Supplier Risk Radar Showcase
+# Supplier Risk Radar
 
-## What This Demonstrates
+## The problem
 
-A supplier scoring layer that converts delivery, quality, and complaint signals into a practical risk ranking for operations teams.
+Supplier trouble shows up as late deliveries, quality misses, and complaints — but the signals are scattered. Teams argue from anecdotes instead of a shared ranking.
 
-## Included Files
+**What this showcase shows:** a scoring layer that turns delivery, quality, and complaint signals into a practical risk ranking for ops.
 
-- [`demo_page.md`](./demo_page.md) - GitHub-friendly walkthrough.
+## Who it helps
 
-## Source Mapping
+- Procurement / ops leads who prioritise which suppliers to watch  
+- Engineers building scorecards on ERP data  
+- Portfolio readers who want the idea without real vendor names  
 
-Primary source modules:
-- `odoo_dev/mv_sale_fields/models/sale_order.py`
-- `odoo_dev/mv_purchase_fields/models/purchase_order.py`
-- `odoo_dev/mv_command_centre/models/command_centre_entry.py`
+## How to run
 
-## Portfolio Safety
+This folder is a **read-and-learn showcase** (not a full app install).
 
-Samples are adapted to avoid exposing:
-- business-specific customer/order data,
-- private infrastructure references,
-- environment-specific internals.
+1. Read [`demo_page.md`](./demo_page.md).  
+2. Note the sanitised samples and source mapping in that page / this repo’s conventions.
+
+Primary source modules (private tree): sale / purchase / command-centre field models under `odoo_dev/`.

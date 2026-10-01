@@ -1,26 +1,25 @@
-# Intelligent QI Showcase
+# Intelligent QI
 
-## What This Demonstrates
+## The problem
 
-Intelligent QI centralises checklist-driven inspection, non-conformity handling, and supplier communication artefacts (including SCAR export).
+Quality inspection is easy to scatter across spreadsheets, emails, and one-off checklists. Non-conformities and supplier follow-ups then lose their thread.
 
-## Included Files
+**What this showcase shows:** checklist-driven inspection, non-conformity handling, and supplier communication artefacts (including SCAR-style export) in one place.
 
-- [`demo_page.md`](./demo_page.md) - GitHub-friendly walkthrough page.
-- [`sample_qi_check_logic.py`](./sample_qi_check_logic.py) - Curated logic from QI check flow.
-- [`sample_selection_engine.py`](./sample_selection_engine.py) - Rule-based sampling/selection logic.
-- [`sample_plan_lifecycle.py`](./sample_plan_lifecycle.py) - Plan/check lifecycle pattern.
+## Who it helps
 
-## Source Mapping
+- Quality / ops teams who need a repeatable inspection flow  
+- Engineers modelling QI plans and sampling rules  
+- Portfolio readers who want the pattern without live plant data  
 
-Primary source module: `odoo_dev/mv_intelligent_qi`.
+## How to run
 
-Note: the active working tree currently only contains `odoo_dev/mv_intelligent_qi/MIRO_SCHEMATIC.md`.  
-For this showcase, code examples were extracted from recent repository history where the module was present.
+This folder is a **read-and-learn showcase** (not a full app install).
 
-## Portfolio Safety
+1. Read [`demo_page.md`](./demo_page.md).  
+2. Skim:
+   - [`sample_qi_check_logic.py`](./sample_qi_check_logic.py)  
+   - [`sample_selection_engine.py`](./sample_selection_engine.py)  
+   - [`sample_plan_lifecycle.py`](./sample_plan_lifecycle.py)  
 
-The samples are intentionally sanitised:
-- no customer names,
-- no internal URLs/tokens,
-- no environment-specific identifiers.
+Samples are sanitised. Primary source module (private tree): `odoo_dev/mv_intelligent_qi`.
